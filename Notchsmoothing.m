@@ -11,6 +11,9 @@ function [x, cost] = Notchsmoothing(y, fN, lam, flag);
 % cost - cost function history
 %
 % Reference
+% - A New Approach to ARMAX Signals Smoothing: Application to Variable-Q
+% ARMA Filter Design.
+
 y = y(:); % Make column vector
 N = length(y);
 wN = 2*pi*fN;
