@@ -15,9 +15,9 @@ Amp = sin(2*pi*0.1*t);
 Amp = 1;
 x_n  = 0.1*Amp.*cos(2*pi*fc*t);
 xNoisy = data + x_n;
-lam = 1e1;
+lam = 1000;
 flag = 1;
-[x, cost] = Notchsmoothing(xNoisy, fc, lam, flag);
+[x, cost] = Notchsmoothing(xNoisy, fc/fs, lam, flag);
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure, hax=axes;
 set(gcf, 'Units', 'Inches', 'Position', [0, 0, 15, 5], 'PaperUnits', 'Inches', 'PaperSize', [15, 5])
@@ -51,5 +51,5 @@ pos = get(gcf, 'Position');
 % set(gcf, 'Position', [pos(1) pos(2) width*100, height*100]); %<- Set size
 set(gca, 'FontSize', fsz, 'LineWidth', alw); %<- Set properties
 box, grid
-plot(data), hold all, plot(x)
+plot(data), hold all, plot(xNoisy - x)
 legend('Clean data', 'Denoised data')
