@@ -1,12 +1,10 @@
 function [x, cost] = Notchsmoothing(y, fN, lam, flag);
-% [x, cost] = Notchsmoothing(y, fN, lam, Nit, flag);
-% AR smoothing filter using majorization-minimization
-% and banded linear systems.
+% [x, cost] = Notchsmoothing(y, fN, lam, flag);
 %
 % INPUT
 % y - noisy signal
 % lam - regularization parameter
-% Nit - number of iterations
+% flag - use 1 for fast computation 
 %
 % OUTPUT
 % x - denoised signal
